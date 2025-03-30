@@ -53,7 +53,6 @@ git clone https://github.com/enragedcanadiangoose/7-Segment-Thermometer.git
 <p>You can follow this diagram to replicate the circuit I used, this should let the code function with no modification</p>
 <img src="images/breadBoard.jpg" alt="Schematic" width="100%" style="background-color:white">  
 <p>Here is the version that I built on a prototyping breadboard, it's a bit of a sloppy prototype but it works</p>
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### How It Works
 
@@ -63,7 +62,7 @@ git clone https://github.com/enragedcanadiangoose/7-Segment-Thermometer.git
 * The presence of the decimal point indicates if the temperature is positive or negative
     * on = >=0
     * off = <=0
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 ## Roadmap
 
 <p>At some point a run of PCBs may be ordered</p>
