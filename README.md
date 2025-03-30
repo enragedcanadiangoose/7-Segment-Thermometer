@@ -60,8 +60,8 @@ git clone https://github.com/enragedcanadiangoose/7-Segment-Thermometer.git
     * The display will blank during this time since the Arduino can't draw the display and poll the sensors simultaneously
 * The desired thermal sensor is selected using the toggle switch
 * The presence of the decimal point indicates if the temperature is positive or negative
-    * on = >=0
-    * off = <=0
+    * on = ≥ 0
+    * off = ≤ 0
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 ## Roadmap
 
