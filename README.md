@@ -65,4 +65,4 @@ git clone https://github.com/enragedcanadiangoose/7-Segment-Thermometer.git
 
 ## License
 
-<p>see LICENSE.txt for details</p>
+<p>see <a href="https://github.com/enragedcanadiangoose/7-Segment-Thermometer/blob/main/LICENSE">LICENSE</a> for details</p>
