@@ -1,5 +1,5 @@
 # 7-Segment-Thermometer
-A simple project using two onewire thermal sensors an arduino nano and a four digit common cathode seven-segment display
+A simple project using two thermal sensors (DS18B20) an arduino nano and a four digit common cathode seven-segment display
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -63,9 +63,10 @@ git clone https://github.com/enragedcanadiangoose/7-Segment-Thermometer.git
     * on = ≥ 0
     * off = ≤ 0
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Roadmap
 
-<p>At some point a run of PCBs may be ordered</p>
+<p>At some point a run of PCBs may be manufactured</p>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contact
