@@ -7,6 +7,18 @@ class SevenSegment{
     int digitValue[4] = {0}; //stores what value is stored in a given digit
     bool decimal[4] = {0}; //stores wether or not a digit has a decimal on it
     bool state[4] = {0}; //stores if a digit is turned on or not
+    const bool CHARACTER_MATRIX[10][7] = { //character matrix containing the 10 possible digits (0-9) each number corrosponding to segments a-g
+      {0,0,0,0,0,0,0},
+      {0,1,1,0,0,0,0},
+      {1,1,0,1,1,0,1},
+      {1,1,1,1,0,0,1},
+      {0,1,1,0,0,1,1},
+      {1,0,1,1,0,1,1},
+      {0,0,1,1,1,1,1},
+      {1,1,1,0,0,0,0},
+      {1,1,1,1,1,1,1},
+      {1,1,1,0,0,1,1}
+      };
 
   public:
     SevenSegment(int a, int b, int c, int d, int e, int f, int g, int decimal, int d1, int d2, int d3, int d4){ //constructor for the display, inputs each segment's pin number into an array, or each digits pin number
@@ -34,7 +46,7 @@ class SevenSegment{
       }
     }
 
-    allSegments(bool state){ //turns on all the segments of the display at once **BE CAREFUL TO NOT BURN OUT YOUR DISPLAY**
+    allSegments(bool state){ //turns on all the segments of the display at once
       for(int i = 0; i<8; i++){
         digitalWrite(segmentPin[i], state);
       }
@@ -53,87 +65,10 @@ class SevenSegment{
       for(int i = 0; i < 4; i++){ //cycles through the 4 digits
         if(state[i]){ //if the current digit is enabled
           digitalWrite(digitPin[i], 1); //turns on the current digit
-          switch(digitValue[i]){ //writes whichever value is assigned to the digit to the digital pins for said digit
-            case 0:
-              digitalWrite(segmentPin[0], 1); //a
-              digitalWrite(segmentPin[1], 1); //b
-              digitalWrite(segmentPin[2], 1); //c
-              digitalWrite(segmentPin[3], 1); //d
-              digitalWrite(segmentPin[4], 1); //e
-              digitalWrite(segmentPin[5], 1); //f
-              digitalWrite(segmentPin[7], decimal[i]); //if the decimal is enabled enable the decimal
-              break;
-            case 1:
-              digitalWrite(segmentPin[1], 1);
-              digitalWrite(segmentPin[2], 1);
-              digitalWrite(segmentPin[7], decimal[i]);
-              break;
-            case 2:
-              digitalWrite(segmentPin[0], 1); //a
-              digitalWrite(segmentPin[1], 1); //b
-              digitalWrite(segmentPin[3], 1); //d
-              digitalWrite(segmentPin[4], 1); //e
-              digitalWrite(segmentPin[6], 1); //g
-              digitalWrite(segmentPin[7], decimal[i]);
-              break;
-            case 3:
-              digitalWrite(segmentPin[0], 1); //a
-              digitalWrite(segmentPin[1], 1); //b
-              digitalWrite(segmentPin[2], 1); //c
-              digitalWrite(segmentPin[3], 1); //d
-              digitalWrite(segmentPin[6], 1); //g
-              digitalWrite(segmentPin[7], decimal[i]);
-              break;
-            case 4:
-              digitalWrite(segmentPin[1], 1); //b
-              digitalWrite(segmentPin[2], 1); //c
-              digitalWrite(segmentPin[5], 1); //f
-              digitalWrite(segmentPin[6], 1); //g
-              digitalWrite(segmentPin[7], decimal[i]);
-              break;
-            case 5:
-              digitalWrite(segmentPin[0], 1); //a
-              digitalWrite(segmentPin[2], 1); //c
-              digitalWrite(segmentPin[3], 1); //d
-              digitalWrite(segmentPin[5], 1); //f
-              digitalWrite(segmentPin[6], 1); //g
-              digitalWrite(segmentPin[7], decimal[i]);
-              break;
-            case 6:
-              digitalWrite(segmentPin[0], 1); //a
-              digitalWrite(segmentPin[2], 1); //c
-              digitalWrite(segmentPin[3], 1); //d
-              digitalWrite(segmentPin[4], 1); //e
-              digitalWrite(segmentPin[5], 1); //f
-              digitalWrite(segmentPin[6], 1); //g
-              digitalWrite(segmentPin[7], decimal[i]);
-              break;
-            case 7:
-              digitalWrite(segmentPin[0], 1); //a
-              digitalWrite(segmentPin[1], 1); //b
-              digitalWrite(segmentPin[2], 1); //c
-              digitalWrite(segmentPin[7], decimal[i]);
-              break;
-            case 8:
-              digitalWrite(segmentPin[0], 1); //a
-              digitalWrite(segmentPin[1], 1); //b
-              digitalWrite(segmentPin[2], 1); //c
-              digitalWrite(segmentPin[3], 1); //d
-              digitalWrite(segmentPin[4], 1); //e
-              digitalWrite(segmentPin[5], 1); //f
-              digitalWrite(segmentPin[6], 1); //g
-              digitalWrite(segmentPin[7], decimal[i]);
-              break;
-            case 9:
-              digitalWrite(segmentPin[0], 1); //a
-              digitalWrite(segmentPin[1], 1); //b
-              digitalWrite(segmentPin[2], 1); //c
-              digitalWrite(segmentPin[3], 1); //d
-              digitalWrite(segmentPin[5], 1); //f
-              digitalWrite(segmentPin[6], 1); //g
-              digitalWrite(segmentPin[7], decimal[i]);
-              break;
+          for(int j = 0; j<7; j++){ //cycles through each segment illuminating it if it is needed
+            digitalWrite(segmentPin[j], CHARACTER_MATRIX[digitValue[i]][j]);
           }
+          digitalWrite(segmentPin[7], decimal[i]); //enables the decimal if it is needed
           delay(1); //a 1ms delay to allow for the digits to properly illuminate
           allSegments(0); //turns off all the digits to allow for the display of the next digit
           digitalWrite(digitPin[i], 0); //disables the current digit to allow the next one to be displayed

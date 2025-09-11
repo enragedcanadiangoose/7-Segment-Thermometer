@@ -15,14 +15,14 @@ DallasTemperature outdoor(&sensor2);
 
 void setup() {
   pinMode(A2, INPUT); //A2 is the switch between the two couples
-
+  pinMode(A3, INPUT);
   display.begin(); //initializes the display class
   indoor.begin();
   outdoor.begin();
 
   time = millis(); //sets the timer to be the current runtime
   lastState = digitalRead(A2); //sets the lastState to be the current state of A2, for detection of changes to A2
-
+  Serial.begin(9600);
   if(digitalRead(A2)){ //if A2 is high gets the temperature of the indoor sensor
       indoor.requestTemperatures();
       display.setNumber(abs(indoor.getTempCByIndex(0)*100), (abs(indoor.getTempCByIndex(0)) >= 0)); //sets the display to the temperature of the indoor sensor
@@ -47,6 +47,12 @@ void loop() {
     else{//otherwise gets the temperature of the outdoor sensor
       outdoor.requestTemperatures();
       display.setNumber(abs(outdoor.getTempCByIndex(0)*100), (outdoor.getTempCByIndex(0) >= 0));//sets the display to the outdoor temperature
+    }
+    if(digitalRead(A3)){ //if A3 is connected to power prints the temps over serial
+      indoor.requestTemperatures();
+      outdoor.requestTemperatures();
+      Serial.println(indoor.getTempCByIndex(0));
+      Serial.println(outdoor.getTempCByIndex(0));
     }
   }
   display.drawDisplay(); //draws the 7 segment display

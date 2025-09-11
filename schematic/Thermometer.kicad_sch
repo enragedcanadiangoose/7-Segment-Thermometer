@@ -2186,6 +2186,12 @@
 		(uuid "0d82784b-24ff-411e-a9ce-dc3c44ca594f")
 	)
 	(junction
+		(at 54.61 95.25)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3ef4eb8e-6b2d-4709-ba69-24e102656022")
+	)
+	(junction
 		(at 142.24 95.25)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2363,6 +2369,16 @@
 	)
 	(wire
 		(pts
+			(xy 52.07 76.2) (xy 54.61 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1a0abdd8-fbc3-4da6-ac35-f0626f8f3f0d")
+	)
+	(wire
+		(pts
 			(xy 26.67 66.04) (xy 21.59 66.04)
 		)
 		(stroke
@@ -2420,6 +2436,16 @@
 			(type default)
 		)
 		(uuid "27a914f7-4c8b-4cd1-9227-8fa39b7df35c")
+	)
+	(wire
+		(pts
+			(xy 54.61 95.25) (xy 123.19 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2bde6089-e5e8-4ff5-84c1-f357c929f574")
 	)
 	(wire
 		(pts
@@ -2803,7 +2829,17 @@
 	)
 	(wire
 		(pts
-			(xy 39.37 95.25) (xy 123.19 95.25)
+			(xy 54.61 81.28) (xy 54.61 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c11520e6-d0de-41b8-abc1-72c7c1919512")
+	)
+	(wire
+		(pts
+			(xy 39.37 95.25) (xy 54.61 95.25)
 		)
 		(stroke
 			(width 0)
@@ -3784,6 +3820,76 @@
 			(project ""
 				(path "/81b9514e-2b12-47cb-ad97-5183a669bf2a"
 					(reference "A1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small_US")
+		(at 54.61 78.74 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dafb21e5-bfb9-48e0-9e98-d3bcb128d99c")
+		(property "Reference" "R1"
+			(at 57.15 77.4699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1k"
+			(at 57.15 80.0099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 54.61 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 54.61 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small US symbol"
+			(at 54.61 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c88a83f1-ec1e-4ade-80f1-7758abb757ee")
+		)
+		(pin "2"
+			(uuid "0e198729-0662-4758-b9fb-4c8608d19ab5")
+		)
+		(instances
+			(project ""
+				(path "/81b9514e-2b12-47cb-ad97-5183a669bf2a"
+					(reference "R1")
 					(unit 1)
 				)
 			)
