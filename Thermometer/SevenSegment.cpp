@@ -8,13 +8,13 @@ class SevenSegment{
     bool decimal[4] = {0}; //stores wether or not a digit has a decimal on it
     bool state[4] = {0}; //stores if a digit is turned on or not
     const bool CHARACTER_MATRIX[10][7] = { //character matrix containing the 10 possible digits (0-9) each number corrosponding to segments a-g
-      {0,0,0,0,0,0,0},
+      {1,1,1,1,1,1,0},
       {0,1,1,0,0,0,0},
       {1,1,0,1,1,0,1},
       {1,1,1,1,0,0,1},
       {0,1,1,0,0,1,1},
       {1,0,1,1,0,1,1},
-      {0,0,1,1,1,1,1},
+      {1,0,1,1,1,1,1},
       {1,1,1,0,0,0,0},
       {1,1,1,1,1,1,1},
       {1,1,1,0,0,1,1}
