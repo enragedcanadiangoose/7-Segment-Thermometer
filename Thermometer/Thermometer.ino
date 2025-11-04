@@ -5,7 +5,7 @@
 long long time; //stores the previous millis value for refreshing the data
 bool lastState; //used to store the previous state of A2 since there are no interrupts on analogue pins
 
-SevenSegment display(2, 3, 4, 5, 6, 7, 8, 13, 9, 10, 11, 12); //initialize the display using the pins specified for each display segment
+SevenSegment display(2, 3, 4, 5, 6, 7, 8, 10, 9, 11, 12, 13); //initialize the display using the pins specified for each display segment
 
 OneWire sensor1(A0); //instantiate the 2 onewire temperature sensors
 OneWire sensor2(A1);
@@ -47,12 +47,6 @@ void loop() {
     else{//otherwise gets the temperature of the outdoor sensor
       outdoor.requestTemperatures();
       display.setNumber(abs(outdoor.getTempCByIndex(0)*100), (outdoor.getTempCByIndex(0) >= 0));//sets the display to the outdoor temperature
-    }
-    if(digitalRead(A3)){ //if A3 is connected to power prints the temps over serial
-      indoor.requestTemperatures();
-      outdoor.requestTemperatures();
-      Serial.println(indoor.getTempCByIndex(0));
-      Serial.println(outdoor.getTempCByIndex(0));
     }
   }
   display.drawDisplay(); //draws the 7 segment display
