@@ -40,12 +40,15 @@ void loop() {
   }
   else if(time+30000<millis()){ //runs after 30s or if time is 30 000ms less than the millis() timer
     time = millis(); //sets the time to be the current timer
+    indoor.requestTemperatures();
+    outdoor.requestTemperatures();
+    Serial.print(indoor.getTempCByIndex(0));
+    Serial.print("\t");
+    Serial.println(outdoor.getTempCByIndex(0));
     if(digitalRead(A2)){ //if A2 is high gets the temperature of the indoor sensor
-      indoor.requestTemperatures();
       display.setNumber(abs(indoor.getTempCByIndex(0)*100), (abs(indoor.getTempCByIndex(0)) >= 0));//sets the display to the temperature of the indoor sensor
     }
     else{//otherwise gets the temperature of the outdoor sensor
-      outdoor.requestTemperatures();
       display.setNumber(abs(outdoor.getTempCByIndex(0)*100), (outdoor.getTempCByIndex(0) >= 0));//sets the display to the outdoor temperature
     }
   }
