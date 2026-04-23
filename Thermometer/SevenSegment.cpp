@@ -22,8 +22,20 @@ class SevenSegment{
 
   public:
     SevenSegment(int a, int b, int c, int d, int e, int f, int g, int decimal, int d1, int d2, int d3, int d4){ //constructor for the display, inputs each segment's pin number into an array, or each digits pin number
-      segmentPin = {a, b, c, d, e, f, g, decimal};
-      digitPin = {d1, d2, d3, d4};
+      segmentPin[0] = a;
+      segmentPin[1] = b;
+      segmentPin[2] = c;
+      segmentPin[3] = d;
+      segmentPin[4] = e;
+      segmentPin[5] = f;
+      segmentPin[6] = g;
+      segmentPin[7] = decimal;
+
+      digitPin[0] = d1;
+      digitPin[1] = d2;
+      digitPin[2] = d3;
+      digitPin[3] = d4;
+
     }
     begin(){ //initializes the display by setting all of it's segment pins and digit pins as outputs
       for(int i = 0; i< 8; i++){
